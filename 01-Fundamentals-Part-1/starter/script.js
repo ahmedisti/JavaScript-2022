@@ -303,6 +303,7 @@ const bmiJhon = massJohn / heightJhon ** 2;
 
 
 //type conversion
+/*
  const inputYear = '1991';
 console.log(Number(inputYear));
  console.log(Number(inputYear) + 18);
@@ -313,6 +314,317 @@ console.log(Number(inputYear));
  //type coercion
  console.log('i am ' + 23 + ' years old');
  console.log('i am ' + '23' + ' years old');
+ console.log('23' - '10' - 3);
+ console.log('23' > '18');
+
+ let n = '1' + 1; //11
+ n = n - 1; // 11 - 1 = 10
+ console.log(n); // 10
+
+ // 2 + 3 + 4 + '5' = 9 + '5' = 95; 
+
+*/
 
 
+//==== Truthy and Falsy Value ====//
+
+
+// 5 falsy value 0, '', undefined, null, NaN
+/*
+console.log(Boolean(0)); //false
+console.log(Boolean(undefined)); //false
+console.log(Boolean('istiaq')); //true
+console.log(Boolean({})); //true
+console.log(Boolean()); //false
+
+const money = 0; // because 0 is a falsy value that why  else will exiccute
+
+if(money){
+    console.log("Don't spend it all");
+}
+else{
+    console.log("You Should get a job");
+}
+
+let height;
+if(height){
+    console.log("Yeahhhh defined")
+}
+else{
+    console.log("ohhhhh undefind")
+}
+
+*/
+
+//==== Equality Operators ====//
+
+// === strict equality 18 === 18 true
+// == loose equality '18' == 18 true
+/*
+const age = 18;
+
+if(age === 18)
+console.log("You are an adult(Strict)");
+if(age == 18)
+console.log("You are an adult(Loose)");
+
+const favorite = Number( prompt("whats your favotite number")); // now 10 === 10
+console.log(typeof favorite)
+
+if ( favorite === 10){ // '10' == 10 if not use number function 
+    console.log('Neymar jr');
+}
+else if(favorite === 7){
+    console.log("CR7");
+}
+else{
+    console.log("Nothing");
+}
+
+
+if(favorite !== 10){ //strict not equal
+    console.log("Why not Messi");
+}
+
+*/
+
+//==== Boolean Logic ====//
+
+//just theory
+
+//==== Logical Operators ====//
+/*
+const hasDrivingLicense = true; //A
+const hasGoodVision = true; //B
+
+console.log(hasDrivingLicense && hasGoodVision);
+console.log(hasDrivingLicense || hasGoodVision);
+console.log(!hasDrivingLicense);
+
+// const shouldDrive = hasDrivingLicense && hasGoodVision;
+
+// if(shouldDrive){
+//     console.log("Able to Drive");
+// }
+// else{
+//     console.log("Not Able to Drive");
+// }
+
+const isTried =  false; //C
+// console.log(hasDrivingLicense || hasGoodVision || isTried);
+
+
+if(hasDrivingLicense && hasGoodVision && !isTried){
+    console.log("Able to Drive");
+}
+else{
+    console.log("Not Able to Drive");
+}
+*/
+
+//=====video no 20 Coding Challenge #1====//
+
+/* QUESTION
+
+Coding Challenge #3
+There are two gymnastics teams, Dolphins and Koalas. They compete against each
+other 3 times. The winner with the highest average score wins a trophy!
+Your tasks:
+1. Calculate the average score for each team, using the test data below
+2. Compare the team's average scores to determine the winner of the competition,
+and print it to the console. Don't forget that there can be a draw, so test for that
+as well (draw means they have the same average score)
+3. Bonus 1: Include a requirement for a minimum score of 100. With this rule, a
+team only wins if it has a higher score than the other team, and the same time a
+score of at least 100 points. Hint: Use a logical operator to test for minimum
+score, as well as multiple else-if blocks 😉
+4. Bonus 2: Minimum score also applies to a draw! So a draw only happens when
+both teams have the same score and both have a score greater or equal 100
+points. Otherwise, no team wins the trophy
+Test data:
+§ Data 1: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
+§ Data Bonus 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
+§ Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
+
+*/
+
+/*
+
+//Data 1
+
+const dolphinsAverageData1 =  (96 + 108 + 89)/3;
+const koalasAverageData1 = (88 + 91 + 110)/3;
+
+if(dolphinsAverageData1 > koalasAverageData1){
+    console.log("Team Dolphin is The Winner with " + dolphinsAverageData1 + " score");
+}
+else if(koalasAverageData1 > dolphinsAverageData1){
+    console.log("Team Koalas is The Winner with " + dolphinsAverageData1 + " score");
+}
+else{
+    console.log("The Match is Draw");
+}
+
+//Bonus 1
+
+// const minumumScore = 400;
+const dolphinsAverageBonus1 =  (97 + 112 + 101)/3;
+const koalasAverageBonus1 = (109 + 95 + 123)/3;
+
+if(dolphinsAverageBonus1 > koalasAverageBonus1 && dolphinsAverageBonus1 >= 100){
+    console.log("Team Dolphin is The Winner with " + dolphinsAverageBonus1 + " score");
+}
+else if(koalasAverageBonus1 > dolphinsAverageBonus1 && koalasAverageBonus1 >= 100){
+    console.log("Team Koalas is The Winner with " + koalasAverageBonus1 + " score");
+}
+else{
+    console.log("Not Reach The 100 point");
+}
+
+
+//Bonus 2
+
+const dolphinsAverageBonus2 =  (97 + 112 + 101)/3;
+const koalasAverageBonus2 = (109 + 95 + 106)/3;
+if(dolphinsAverageBonus2 === koalasAverageBonus2  && dolphinsAverageBonus2 >= 200 && koalasAverageBonus2 >= 200){
+    console.log("They Both Win Trophy 👑")
+}
+else{
+    console.log("No one wins😥😥😥");
+}
+
+
+//pass the test
+
+*/
+
+//==== The switch statement ====//
+
+
+
+
+/*
+const day = 'sunday';
+switch(day){
+    case 'monday': /// day === monday strict equality
+        console.log('Plan course structure');
+        console.log('Go to coding meetup');
+        break;
+        
+    case 'tuesday':
+        console.log('Prepare theory videos');
+        break;
+
+    case 'wednesday':
+    case 'thursday':
+        console.log('Write code examples');
+        break;
+
+        case 'friday':
+        console.log('Record videos');
+        break;
+
+        case 'saturday':
+        case 'sunday':
+                console.log('Enjoy weekend');
+                break;
+            
+            default:
+                console.log('Not valid day')
+
+}
+
+
+
+if(day === 'monday'){
+    console.log('Plan course structure');
+    console.log('Go to coding meetup');
+}
+
+
+else if(day === 'tuesday'){
+    console.log('Prepare theory videos');
+}
+
+else if(day === 'wednesday' || day === 'thursday'){
+    console.log('Write code examples');
+}
+
+else if(day === 'friday'){
+    console.log('Record videos');
+}
+else if(day === 'saturday' || day === 'sunday'){
+    console.log('Enjoy the day');
+}
+else{
+    console.log('Not valid day');
+}
+*/
+
+//==== statement and expression ====//
+/*
+if ( 23 > 10){
+    const str = '23 is bigger'; // #Expression = 23 is bigger  which produce a value is an expression in js
+                                // #Statement = const str = '23 is bigger';
+}
+
+const me = 'istiaq';
+console.log(`I'm ${2022-1998} years old ${me}`); //expression = 2022-1998
+
+*/
+
+//==== The conditional operator(Ternary) ====//
+
+// condition ? if part : else part
+/*
+const age = 24;
+age >= 18 ? console.log('I like to play football') :
+console.log('I like to play cricket');
+
+const drink = age >= 18 ? 'Play' : 'Study';  //expression
+console.log(drink);
+
+const food = 15;
+
+console.log(`I like to eat ${food >= 12 ? 'mejban' : 'kichuri'}`);
+
+*/
+
+//=====video no 24 Coding Challenge #1====//
+
+/* QUESTION
+
+Coding Challenge #4
+Steven wants to build a very simple tip calculator for whenever he goes eating in a
+restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and
+300. If the value is different, the tip is 20%.
+Your tasks:
+1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for
+this. It's not allowed to use an if/else statement 😅 (If it's easier for you, you can
+start with an if/else statement, and then try to convert it to a ternary
+operator!)
+2. Print a string to the console containing the bill value, the tip, and the final value
+(bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value
+316.25”
+Test data:
+§ Data 1: Test for bill values 275, 40 and 430
+Hints:
+§ To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+§ Value X is between 50 and 300, if it's >= 50 && <= 300 😉
+
+*/
+
+/*
+
+const bill = 430;
+
+
+
+const tip = bill >= 50 && bill <= 300 ? bill*0.15 : (bill*0.2) ;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value
+${bill+tip}`)
+
+//pass the test
+
+*/
 
