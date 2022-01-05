@@ -348,3 +348,372 @@ console.log(total);
 //pass the test
 
 */
+
+
+//==== 12 INTRODUCTION TO OBJECTS ====\\
+
+/*
+
+const istiaq = {  //object literal syntex
+    firstName : 'Istiaq',
+    lastName : 'Ahmed',
+    age : 2037 - 1991,
+    job : 'Intern',
+    friends : ['a','b','c','d']
+}
+
+*/
+
+//==== 13 DOT VS BRACKET ====\\
+/*
+const istiaq = {  //object literal syntex
+    firstName : 'Istiaq',
+    lastName : 'Ahmed',
+    age : 2037 - 1991,
+    job : 'Intern',
+    friends : ['Neymar','Ronaldo','Fati','Messi']
+}
+
+console.log(istiaq.lastName,istiaq.firstName) // . notation
+console.log(istiaq['lastName']) // [] notation
+
+const namekey = 'Name';
+console.log(istiaq['first' + namekey]);
+console.log(istiaq['last' + namekey]);
+
+// const interestedIn = prompt('What do you want o know about Istiaq? Choose between firstName, lastName, age, job and friends');
+
+
+
+// if(istiaq[interestedIn]){
+//     console.log(istiaq[interestedIn]);
+
+// }
+// else{
+//     console.log('Wrong Request! Choose between firstName, lastName, age, job and friends ')
+// }
+
+
+//add property to object
+
+istiaq.location = 'Dhaka';
+istiaq['facebook'] = 'Ahmed Istiaq';
+console.log(istiaq);
+
+//challenge
+//Istiaq has 3 friend and his best friend is called Messi
+console.log(istiaq.firstName , 'has', istiaq['friends'].length, 'friends and his best friend is',istiaq.friends[3] )
+
+console.log(`${istiaq.firstName} has ${istiaq.friends.length} friends and his best friend is ${istiaq.friends[3]}`)
+
+*/
+
+//==== 14 OBJECT METHODS ====\\
+
+/*
+const istiaq = {  //object literal syntex
+    firstName : 'Istiaq',
+    lastName : 'Ahmed',
+    birthYear : 1991,
+    job : 'Intern',
+    friends : ['Neymar','Ronaldo','Fati','Messi'],
+    hasDriverLicense : true,
+
+    // calcAge : function(birthYear){ //function expression
+    //     return 2037 - birthYear;
+    // }
+
+    //new version
+    // calcAge : function(){ //function expression
+    //     console.log(this) // this is pointing to the istiaq object 
+    //     return 2037 - this.birthYear;
+    // }
+    calcAge : function(){  
+        
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+    getSummary : function(){
+        
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job} , and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license.`
+        
+
+    }
+};
+
+
+// console.log (istiaq.calcAge(1991));
+// console.log(istiaq['calcAge'](1990));
+
+// console.log(istiaq.calcAge());
+// console.log(istiaq.age);
+// console.log(istiaq.age);
+// console.log(istiaq.age);
+// console.log(istiaq.age);
+
+//challenge
+
+//Jonas is a 46-year old Intern, and he has a/no driver,s license.
+
+console.log(istiaq.getSummary())
+
+*/
+
+//==== 15 CODING CHALLENGE ====\\
+
+/*
+
+Question
+
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to
+implement the calculations! Remember: BMI = mass / height ** 2 = mass
+/ (height * height) (mass in kg and height in meter)
+Your tasks:
+1. For each of them, create an object with properties for their full name, mass, and
+height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same
+method on both objects). Store the BMI value to a property, and also return it
+from the method
+3. Log to the console who has the higher BMI, together with the full name and the
+respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m
+tall.
+
+*/
+
+//Solution
+
+/*
+
+const mark = {
+    fullName : 'Mark Miller',
+    mass : 92,
+    height : 1.95,
+    calcBMI : function(){
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+};
+
+const john = {
+    fullName : 'John Smith',
+    mass : 78,
+    height : 1.69,
+    calcBMI : function(){
+    this.bmi = this.mass / this.height ** 2;
+        return  this.bmi;
+    }
+}
+
+
+console.log(mark)
+console.log(john)
+
+mark.calcBMI();
+john.calcBMI();
+console.log(mark.bmi)
+console.log(john.bmi)
+
+
+mark.bmi > john.bmi ? console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higer than ${john.fullName}'s (${john.bmi}) `) : console.log(`${john.fullName}'s BMI (${john.bmi}) is higer than ${mark.fullName}'s (${mark.bmi}) `)
+
+
+console.log()
+
+//pass the test
+
+*/
+
+
+//==== 16 ITERATION THE FOR LOOP ====\\
+
+
+// console.log('Lifting weights repetition 1 🦾')
+// console.log('Lifting weights repetition 2 🦾')
+// console.log('Lifting weights repetition 3 🦾')
+// console.log('Lifting weights repetition 4 🦾')
+// console.log('Lifting weights repetition 1 🦾')
+// console.log('Lifting weights repetition 1 🦾')
+// console.log('Lifting weights repetition 1 🦾')
+// console.log('Lifting weights repetition 1 🦾')
+// console.log('Lifting weights repetition 1 🦾')
+// console.log('Lifting weights repetition 1 🦾')
+
+// for(counter;condition;increase counter)
+
+/*
+for(let rep = 1; rep <= 10 ; rep++) {
+
+    console.log (`Lifting weights repetition ${rep} 🦾`)
+}
+
+*/
+
+//==== 17 LOOPING ARRAYS BREAKING ====\\
+
+
+// const istiaqArray = [
+//     'Istiaq',
+//     'Ahmed',
+//     2037 - 1991,
+//     'Intern',
+//     ['Messi', 'Neymar', 'Ronaldo'],
+//     true,
+//     false
+// ];
+
+// const types = [];
+
+// for(let start = 0 ; start <= istiaqArray.length-1; start++){
+//     console.log(istiaqArray[start], typeof istiaqArray[start]);
+
+//     // types[start] = typeof istiaqArray[start];
+
+//     types.push(typeof istiaqArray[start]);
+// }
+
+// console.log(types);
+
+// const years = [1971, 1991, 1998 , 2002];
+
+// const ages = [];
+
+// for(let i = 0 ; i <= years.length-1; i++){
+
+//     ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+
+//Continue & Break
+
+/*
+
+const istiaqArray = [
+    'Istiaq',
+    'Ahmed',
+    2037 - 1991,
+    'Intern',
+    ['Messi', 'Neymar', 'Ronaldo'],
+    true,
+    false
+];
+
+console.log('==Only Strings==')
+
+for(let start = 0 ; start <= istiaqArray.length-1; start++){
+    if(typeof istiaqArray[start] !== 'string') continue;
+
+    console.log(istiaqArray[start], typeof istiaqArray[start]);
+
+}
+
+console.log('==Break with Number==')
+
+for(let start = 0 ; start <= istiaqArray.length-1; start++){
+    if(typeof istiaqArray[start] === 'number') 
+    break;
+
+    console.log(istiaqArray[start], typeof istiaqArray[start]);
+
+}
+
+*/
+
+//==== 18 LOOPING BACKWARDS AND NESTED LOOP ====\\
+/*
+const istiaq = [
+    'Istiaq',
+    'Ahmed',
+    2037 - 1991,
+    'Intern',
+    ['Messi', 'Neymar', 'Ronaldo'],
+];
+
+for(let i = istiaq.length-1; i >= 0 ; i--){
+    console.log(istiaq[i]);
+}
+
+
+for(let excercise = 1 ; excercise <=3 ; excercise++){
+    console.log(`----Start Excercise ${excercise}----`);
+
+    for(let rep = 1; rep <=5 ; rep++){
+        console.log(` Excercise No : ${excercise} Lifting weight repetition ${rep}`);
+    }
+}
+
+*/
+
+
+//==== 19 WHILE LOOP ====\\
+
+
+// console.log(`----------for--------`)
+// for(let rep = 1; rep <=10 ; rep++){
+//     console.log(`Lifting weight repetition ${rep}`)
+// }
+/*
+console.log(`----------------------------`)
+console.log(`----------WHILE--------`)
+let rep = 1;
+//while this condition is true then it run
+while(rep <= 10){ 
+    // console.log(`Lifting weight repetition ${rep}`);
+    rep++;
+}
+
+//math.trunc use for not getting the decimal value
+
+let dice = Math.trunc (Math.random() * 6) + 1;
+console.log(dice)
+
+
+while( dice !== 6){
+    console.log(`You Rolled a ${dice}`);
+    dice = Math.trunc (Math.random() * 6) + 1;
+    
+
+dice === 6 ? console.log(`OH You Got ${dice} Loops end here`): ''
+    
+}
+
+*/
+
+
+//==== 20 CODING CHALLANGE 4 ====\\
+
+/*
+QUESTION
+
+Coding Challenge #4
+Let's improve Steven's tip calculator even more, this time using loops!
+Your tasks:
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate
+tips and total values (bill + tip) for every bill value in the bills array. Use a for
+loop to perform the 10 calculations!
+Test data: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+Hints: Call ‘calcTip ‘in the loop and use the push method to add values to the
+tips and totals arrays 😉
+Bonus:
+4. Bonus: Write a function 'calcAverage' which takes an array called 'arr' as
+an argument. This function calculates the average of all numbers in the given
+array. This is a difficult challenge (we haven't done this before)! Here is how to
+solve it:
+4.1. First, you will need to add up all values in the array. To do the addition,
+start by creating a variable 'sum' that starts at 0. Then loop over the
+array using a for loop. In each iteration, add the current value to the
+'sum' variable. This way, by the end of the loop, you have all values
+added together
+4.2. To calculate the average, divide the sum you calculated before by the
+length of the array (because that's the number of elements)
+4.3. Call the function with the 'totals' array
+
+*/
+
+//Solution
+
+
+
