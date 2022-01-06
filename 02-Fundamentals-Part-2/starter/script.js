@@ -741,3 +741,36 @@ Tips : ${tips}
 Totals : ${totals}`);
 
 
+console.log('---------Bonus Part--------');
+
+//My solution
+
+const calcAverage = function(arr){
+
+
+    return arr = arr/values.length;
+
+
+
+}
+
+let sum = 0;
+let average;
+
+const values = [10,20,30,40,50,60,70,80,90,100];
+
+for(let j = 0 ; j <= values.length-1; j++){
+
+    sum = sum + values[j];
+    average = calcAverage(sum);
+    
+};
+console.log(`Sum of total number : ${sum}`)
+console.log(`Average of the Sum : ${average}`)
+
+
+//another solution
+
+
+
+
