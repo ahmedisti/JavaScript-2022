@@ -765,9 +765,10 @@ for(let j = 0 ; j <= values.length-1; j++){
     average = calcAverage(sum);
     
 };
-console.log(`Sum of total number : ${sum}`)
-console.log(`Average of the Sum : ${average}`)
+console.log(`Sum of total number : ${sum}`,
+`Average of the Sum : ${average}`)
 
+//pass the 
 
 //another solution
 
