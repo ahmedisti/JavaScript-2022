@@ -1,4 +1,4 @@
-'use strict'; //trun on strict mode
+"use strict"; //trun on strict mode
 
 //==== 2-Activate Strict Mode ====\\
 /*
@@ -207,7 +207,6 @@ checkWinner(teamDinajpur,teamDhaka);
 
 */
 
-
 //==== 9 Introduction to Array ====\\
 
 /*
@@ -250,7 +249,6 @@ console.log(ages);
 
 */
 
-
 //==== 10 Array Operation ====\\
 /*
 const friends = ['Pique', 'Jordi' ,'Gavi', 'Torres'];
@@ -288,7 +286,6 @@ else{
 
 
 */
-
 
 //==== 11 COADING CHALLENGE 2 ====\\
 
@@ -348,7 +345,6 @@ console.log(total);
 //pass the test
 
 */
-
 
 //==== 12 INTRODUCTION TO OBJECTS ====\\
 
@@ -524,9 +520,7 @@ console.log()
 
 */
 
-
 //==== 16 ITERATION THE FOR LOOP ====\\
-
 
 // console.log('Lifting weights repetition 1 🦾')
 // console.log('Lifting weights repetition 2 🦾')
@@ -550,7 +544,6 @@ for(let rep = 1; rep <= 10 ; rep++) {
 */
 
 //==== 17 LOOPING ARRAYS BREAKING ====\\
-
 
 // const istiaqArray = [
 //     'Istiaq',
@@ -583,7 +576,6 @@ for(let rep = 1; rep <= 10 ; rep++) {
 //     ages.push(2037 - years[i]);
 // }
 // console.log(ages);
-
 
 //Continue & Break
 
@@ -645,9 +637,7 @@ for(let excercise = 1 ; excercise <=3 ; excercise++){
 
 */
 
-
 //==== 19 WHILE LOOP ====\\
-
 
 // console.log(`----------for--------`)
 // for(let rep = 1; rep <=10 ; rep++){
@@ -679,7 +669,6 @@ dice === 6 ? console.log(`OH You Got ${dice} Loops end here`): ''
 }
 
 */
-
 
 //==== 20 CODING CHALLANGE 4 ====\\
 
@@ -715,63 +704,52 @@ length of the array (because that's the number of elements)
 
 //Solution
 
-
-
-const calcTip = function(bill){
-
-    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
-
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 };
 
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86 , 52];
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 
 const tips = [];
 
 const totals = [];
 
-for(let i = 0 ; i <= bills.length-1; i++){
-
-    const tip = calcTip(bills[i]);
-    tips.push(tip);
-    totals.push(tip + bills[i]);
+for (let i = 0; i <= bills.length - 1; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
 }
 
 console.log(`Bills : ${bills} 
 Tips : ${tips} 
 Totals : ${totals}`);
 
-
-console.log('---------Bonus Part--------');
+console.log("---------Bonus Part--------");
 
 //My solution
 
-const calcAverage = function(arr){
-
-
-    return arr = arr/values.length;
-
-
-
-}
+const calcAverage = function (arr) {
+  return (arr = arr / values.length);
+};
 
 let sum = 0;
 let average;
 
-const values = [10,20,30,40,50,60,70,80,90,100];
+const values = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-for(let j = 0 ; j <= values.length-1; j++){
+for (let j = 0; j <= values.length - 1; j++) {
+  sum = sum + values[j];
+  average = calcAverage(sum);
+}
+console.log(`Sum of total number : ${sum}`, `Average of the Sum : ${average}`);
 
-    sum = sum + values[j];
-    average = calcAverage(sum);
-    
-};
-console.log(`Sum of total number : ${sum}`,
-`Average of the Sum : ${average}`)
 
-//pass the 
 
-//another solution
+//pass the
 
 
 
 
+
+
+//developer setting 
