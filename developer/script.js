@@ -37,6 +37,7 @@ const calcTempAmplitude = function (t1, t2) {
 };
 
 const tempAmplitude = calcTempAmplitude(temperatures1, temperatures2);
+
 // max = 3
 
 console.log(tempAmplitude);
@@ -50,3 +51,24 @@ console.log(tempAmplitude);
 //how to merge two arrays
 
 //solution : use the concate method
+
+
+
+// debugging a problem
+
+// const measureKelvin = function(){
+//   const measurement = {
+//     type : 'Temperature',
+//     unit : 'celsius',
+//     value : Number(prompt('Degrees celsius')) ,
+//   };
+
+//   // console.warn(measurement.value);
+//   // console.error(measurement.value);
+
+//   const kelvin = measurement.value + 273;
+//   return kelvin;
+// }
+
+
+// console.log(measureKelvin());
