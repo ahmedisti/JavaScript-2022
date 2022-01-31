@@ -57,6 +57,41 @@ const restaurant = {
   },
 };
 ////////////////////////////////////////////////////
+// SETS
+
+const orderSet = new Set([
+  'pasta',
+  'pizza',
+  'pizza',
+  'polao',
+  'pasta',
+]);
+console.log(orderSet);
+console.log(new Set('ISTIAQ'));
+
+ 
+console.log(orderSet.size);
+console.log(orderSet.has('pizza'));
+console.log(orderSet.has('murgi'));
+orderSet.add('goru');
+orderSet.add('goru')
+console.log(orderSet);
+orderSet.delete('polao')
+// orderSet.clear();
+
+console.log(orderSet);
+
+for(const order of orderSet)
+console.log(order);
+
+const staff = ['waiter','chef','manager','waiter','chef','waiter',];
+
+const staffUnique = [...new Set(staff)] // to store the value in the array
+console.log(staffUnique);
+console.log(new Set('Istiaqahmed').size); //how many different letters in my name 
+
+
+////////////////////////////////////////////////////
 // Looping objects objects keys values & entries
 
 // //property names
