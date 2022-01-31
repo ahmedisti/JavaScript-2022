@@ -6,13 +6,13 @@ const flights =
 
 // Data needed for first part of the section
 
-const weekdays = ['mon','tue','web','thu','fri','sat','sun'];
+const weekdays = ['mon','tue','web','thu','fri','sat','sun']
 const openingHours = {
-  [weekdays[3]]: {
+  thu: {
     open: 12,
     close: 22,
   },
-  [openingHours[1]]: {
+  fri: {
     open: 11,
     close: 23,
   },
@@ -56,14 +56,55 @@ const restaurant = {
     console.log(mainIng, otherIng);
   },
 };
-
-////////////////////////
-// Enhanced object literals
-
+////////////////////////////////////////////////////
+// Looping objects objects keys values & entries
 
 
 
-////////////////////////
+
+
+
+///////////////////////////////////////////////////
+// Optional Chaining
+
+// if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// // if(restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
+
+// // Optional Chaining implementn (?.)
+
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+// console.log(restaurant.openingHours?.fri?.open);
+
+// const days = ['mon','tue','web','thu','fri','sat','sun'];
+
+// for(const day of days){
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+
+// // methods
+// console.log(restaurant.order?.(0,1) ?? 'Method does not exist' );
+// console.log(restaurant.orderPolao?.(0,1) ?? 'Method does not exist' );
+
+// // Arrays
+
+// const user = [
+//   // {
+//   //   name: 'isti',
+//   //   mail: 'None',
+//   //   age: 20,
+//   // }
+// ];
+
+// console.log(user[0]?.name ?? 'User Is Empty'); // the alternative way is given below
+
+// if(user.length > 0) console.log(user[0].name);
+// else console.log('user is empty');
+
+/////////////////////////////////////////////////////////
 // Looping Array The for of loop
 
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -87,7 +128,7 @@ const restaurant = {
 // const guestCorrect = restaurant.numGuests ?? 10;
 // console.log(guestCorrect);
 
-///////////////////////////
+///////////////////////////////////////////////////////
 // Short Circuiting
 
 // console.log('------OR------');
@@ -128,7 +169,7 @@ const restaurant = {
 
 // restaurant.orderPizza && restaurant.orderPizza('mushroom','spinach');
 
-//////////////////////
+//////////////////////////////////////////////////////
 // Rest pattern and parameters
 
 // // 1st part Destructuring
@@ -167,7 +208,7 @@ const restaurant = {
 
 // restaurant.orderPizza('Mushrums','onions', 'olives', 'spinach');
 
-/////////////////////////
+//////////////////////////////////////////////////////
 // The Spread operator
 
 // const arr = [7,8,9];
@@ -217,7 +258,7 @@ const restaurant = {
 
 // console.log(restaurantCopy);
 
-/////////////////////////////////
+/////////////////////////////////////////////////////////
 // restaurant.orderDelivery({
 //   time : '10:30',
 //   address: 'Dinajpur',
@@ -267,7 +308,7 @@ const restaurant = {
 // } = openingHours;
 // console.log(o,c);
 
-/////////////////////////////
+//////////////////////////////////////////////////
 // destructuring arrays
 // const arr = [2,3,4];
 // const a = arr[0];
@@ -312,7 +353,7 @@ const restaurant = {
 // const [p = 1,q = 1,r = 1] = [8,9];
 // console.log(p,q,r);
 
-//==========COADING CHALLENGE 1==========\\
+///////==========COADING CHALLENGE 1==========\\\\\\\
 
 // QUESTION:
 
@@ -345,7 +386,7 @@ Then, call the function again with players from game.scored
 
 */
 
-// SOLUTION
+// SOLUTION \\
 
 /*
 const game = {
