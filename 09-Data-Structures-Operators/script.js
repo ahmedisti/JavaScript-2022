@@ -57,38 +57,141 @@ const restaurant = {
   },
 };
 ////////////////////////////////////////////////////
+////////-------MAPS Iteration-------///////// 
+
+
+// const question = new Map([
+//   ['question','what is the best programming language'],
+//   [1,'c'],
+//   [2,'java'],
+//   [3,'JavaScript'],
+//   ['correct',3],
+//   [true,'Correct 😍'],
+//   [false,'Try Again'], 
+// ]);
+
+// console.log(question);
+
+// convert object to map
+console.log(Object.entries(openingHours));
+
+const hourMap = new Map(Object.entries(openingHours));
+console.log(hourMap);
+
+//Quiz app
+// const question = new Map([
+//   ['question','what is the best programming language'],
+//   [1,'c'],
+//   [2,'java'],
+//   [3,'JavaScript'],
+//   ['correct',3],
+//   [true,'Correct 😍'],
+//   [false,'Try Again'], 
+// ]);
+
+// console.log(question.get('question'));
+// for(const [key,value] of question){
+
+//   if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+// const answer = Number(prompt('Your Answer'));
+
+// console.log(question.get(question.get('correct') === answer));
+
+// // convert map to array
+
+// console.log([...question]);
+// console.log(question.entries());
+// console.log(question.values());
+// console.log(question.key());
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////
+////////-------MAPS Fundamentals-------/////////
+
+// const rest = new Map();
+
+// rest.set('name','Deshi Shad');
+
+// rest.set(1,'Dhaka');
+// rest.set(2,'Dnj');
+// console.log(rest);
+
+// rest
+// .set('catagories',['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'])
+// .set('open',11)
+// .set('close',23)
+// .set(true,'We are open')
+// .set(false,'We are close');
+// console.log(rest);
+
+// console.log(rest.get('name'));
+// // console.log(rest.get(true));
+
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); 
+
+
+// console.log(rest.has('catagories'));
+// rest.delete(2);
+// // rest.clear();
+// const arr = [1,2];
+// rest.set(arr,'test');
+
+// rest.set(document.querySelector('h1'),'this is the heading')
+// console.log(rest);
+
+
+// console.log(rest.size);
+
+// console.log(rest.get(arr));
+
+
+
+
+////////////////////////////////////////////////////
 // SETS
 
-const orderSet = new Set([
-  'pasta',
-  'pizza',
-  'pizza',
-  'polao',
-  'pasta',
-]);
-console.log(orderSet);
-console.log(new Set('ISTIAQ'));
+// const orderSet = new Set([
+//   'pasta',
+//   'pizza',
+//   'pizza',
+//   'polao',
+//   'pasta',
+// ]);
+// console.log(orderSet);
+// console.log(new Set('ISTIAQ'));
 
  
-console.log(orderSet.size);
-console.log(orderSet.has('pizza'));
-console.log(orderSet.has('murgi'));
-orderSet.add('goru');
-orderSet.add('goru')
-console.log(orderSet);
-orderSet.delete('polao')
-// orderSet.clear();
+// console.log(orderSet.size);
+// console.log(orderSet.has('pizza'));
+// console.log(orderSet.has('murgi'));
+// orderSet.add('goru');
+// orderSet.add('goru')
+// console.log(orderSet);
+// orderSet.delete('polao')
+// // orderSet.clear();
 
-console.log(orderSet);
+// console.log(orderSet);
 
-for(const order of orderSet)
-console.log(order);
+// for(const order of orderSet)
+// console.log(order);
 
-const staff = ['waiter','chef','manager','waiter','chef','waiter',];
+// const staff = ['waiter','chef','manager','waiter','chef','waiter',];
 
-const staffUnique = [...new Set(staff)] // to store the value in the array
-console.log(staffUnique);
-console.log(new Set('Istiaqahmed').size); //how many different letters in my name 
+// const staffUnique = [...new Set(staff)] // to store the value in the array
+// console.log(staffUnique);
+// console.log(new Set('Istiaqahmed').size); //how many different letters in my name 
 
 
 ////////////////////////////////////////////////////
