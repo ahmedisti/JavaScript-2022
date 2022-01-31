@@ -12,8 +12,6 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-
-
   openingHours: {
     thu: {
       open: 12,
@@ -28,48 +26,59 @@ const restaurant = {
       close: 24,
     },
   },
-  order: function(starterIndex, mainIndex){
-    return[this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function({
+  orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
     time = '20:00',
     address,
-  }){
-
-    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
-
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
   },
 
-  orderPasta : function(ing1,ing2,ing3){
-
+  orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
-
   },
 
-  orderPizza : function(mainIng,...otherIng){
-    console.log(mainIng,otherIng);
-  } 
+  orderPizza: function (mainIng, ...otherIng) {
+    console.log(mainIng, otherIng);
+  },
 };
+
 ////////////////////////
 
 
+
+
+
+////////////////////////
+// Looping Array The for of loop
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for (const item of menu) console.log(item);
+
+// for( const [i,el] of menu.entries()){ //destructure here
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+// console.log(...menu.entries());
 
 ////////////////////////
 // The Nullish Coalescing operator
 // restaurant.numGuests = 0;
 
-
 // const guests = restaurant.numGuests || 10;
 // console.log(guests);
-
 
 // // Nullish value =  null and undefined (Not 0 or '')
 // const guestCorrect = restaurant.numGuests ?? 10;
 // console.log(guestCorrect);
-
 
 ///////////////////////////
 // Short Circuiting
@@ -83,7 +92,7 @@ const restaurant = {
 // console.log(true || 0);
 // console.log(undefined || null);
 
-// console.log(undefined || 0 || '' || 'Hello' || 23 || null); 
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 // // false || false || false || true || true || true
 
 // restaurant.numGuests = 23;
@@ -111,8 +120,6 @@ const restaurant = {
 // }
 
 // restaurant.orderPizza && restaurant.orderPizza('mushroom','spinach');
-
-
 
 //////////////////////
 // Rest pattern and parameters
@@ -152,12 +159,6 @@ const restaurant = {
 // add(...x);
 
 // restaurant.orderPizza('Mushrums','onions', 'olives', 'spinach');
-
-
-
-
-
-
 
 /////////////////////////
 // The Spread operator
@@ -209,7 +210,6 @@ const restaurant = {
 
 // console.log(restaurantCopy);
 
-
 /////////////////////////////////
 // restaurant.orderDelivery({
 //   time : '10:30',
@@ -253,7 +253,6 @@ const restaurant = {
 // ({a,b} = obj);
 // console.log(a,b);
 
-
 // nested objects
 
 // const{
@@ -276,7 +275,6 @@ const restaurant = {
 // console.log(main,secondary);
 
 //switchinging varibales
-
 
 //const temp = main;
 
