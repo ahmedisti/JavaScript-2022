@@ -862,5 +862,76 @@ checkMiddleSeat('3E')
 
 //============Working With Strings Part-2==============\\
 
+const airline = 'TAP Air Portugal';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log('istiaq'.toUpperCase());
+
+// fix captialization in name
+
+
+const passenger = function(passengerName){
+  const passengerLower = passengerName.toLowerCase();
+  const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+  console.log(passengerCorrect);
+}
+
+passenger('iStiAQ'); // Istiaq
+
+// comparing email
+
+const email = 'hello@istiaq.io';
+// const lowerEmail = loginEmail.toLowerCase();
+// console.log(lowerEmail);
+// const trimEmail = lowerEmail.trim();
+// console.log(trimEmail);
+const normalEmail = emailcorrect => {
+const loginEmail  = emailcorrect.toLowerCase().trim();
+console.log(email === loginEmail);
+}
+normalEmail('   Hello@Istiaq.Io \n')
+
+
+// Replacing
+
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£','$').replace(',','.');
+console.log(priceUS); 
+
+const announcement = 'All the passenger come to the boarding door 23. Boarding door 23.'
+console.log(announcement.replaceAll('door','gate')); // ('The value we want to replace','the value we want to replace with')
+
+
+// Booleans 
+
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A32'));
+console.log(plane.startsWith('Air'));
+console.log(plane.endsWith('o'));
+
+if(plane.startsWith('Airbus') && plane.endsWith('neo')){
+  console.log('Part of New Airbus family');
+}
+
+// Practice excercise
+
+const checkBagage = function(item){
+
+  const bagage = item.toLowerCase();
+  if(bagage.includes('knife') || bagage.includes('gun')){
+    console.log('You can not aboard');
+  }
+  else{
+    console.log('You can aboard');
+  }
+}
+
+checkBagage('I have a laptop, some food and a pocket Knife');
+
+checkBagage('I have some socks and camera');
+checkBagage('Got some snacks and a gun for protection');
+
+
 
 //============Working With Strings Part-3==============\\
