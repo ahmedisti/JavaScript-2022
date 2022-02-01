@@ -6,7 +6,7 @@ const flights =
 
 // Data needed for first part of the section
 
-const weekdays = ['mon','tue','web','thu','fri','sat','sun']
+const weekdays = ['mon', 'tue', 'web', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   thu: {
     open: 12,
@@ -31,13 +31,15 @@ const restaurant = {
 
   // ES6 enhanced object literal
   openingHours,
-  
+
   // ES6 the :Function does not have to be written
-  order (starterIndex, mainIndex)  { // it is a function
+  order(starterIndex, mainIndex) {
+    // it is a function
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery({ // it is a function
+  orderDelivery({
+    // it is a function
     starterIndex = 1,
     mainIndex = 0,
     time = '20:00',
@@ -48,17 +50,18 @@ const restaurant = {
     );
   },
 
-  orderPasta(ing1, ing2, ing3) { // it is a function
+  orderPasta(ing1, ing2, ing3) {
+    // it is a function
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
 
-  orderPizza(mainIng, ...otherIng) { // it is a function
+  orderPizza(mainIng, ...otherIng) {
+    // it is a function
     console.log(mainIng, otherIng);
   },
 };
 ////////////////////////////////////////////////////
-////////-------MAPS Iteration-------///////// 
-
+////////-------MAPS Iteration-------/////////
 
 // const question = new Map([
 //   ['question','what is the best programming language'],
@@ -67,16 +70,16 @@ const restaurant = {
 //   [3,'JavaScript'],
 //   ['correct',3],
 //   [true,'Correct 😍'],
-//   [false,'Try Again'], 
+//   [false,'Try Again'],
 // ]);
 
 // console.log(question);
 
 // convert object to map
-console.log(Object.entries(openingHours));
+// console.log(Object.entries(openingHours));
 
-const hourMap = new Map(Object.entries(openingHours));
-console.log(hourMap);
+// const hourMap = new Map(Object.entries(openingHours));
+// console.log(hourMap);
 
 //Quiz app
 // const question = new Map([
@@ -86,7 +89,7 @@ console.log(hourMap);
 //   [3,'JavaScript'],
 //   ['correct',3],
 //   [true,'Correct 😍'],
-//   [false,'Try Again'], 
+//   [false,'Try Again'],
 // ]);
 
 // console.log(question.get('question'));
@@ -104,17 +107,6 @@ console.log(hourMap);
 // console.log(question.entries());
 // console.log(question.values());
 // console.log(question.key());
-
-
-
-
-
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////
 ////////-------MAPS Fundamentals-------/////////
@@ -139,8 +131,7 @@ console.log(hourMap);
 // // console.log(rest.get(true));
 
 // const time = 21;
-// console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); 
-
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
 // console.log(rest.has('catagories'));
 // rest.delete(2);
@@ -151,13 +142,9 @@ console.log(hourMap);
 // rest.set(document.querySelector('h1'),'this is the heading')
 // console.log(rest);
 
-
 // console.log(rest.size);
 
 // console.log(rest.get(arr));
-
-
-
 
 ////////////////////////////////////////////////////
 // SETS
@@ -172,7 +159,6 @@ console.log(hourMap);
 // console.log(orderSet);
 // console.log(new Set('ISTIAQ'));
 
- 
 // console.log(orderSet.size);
 // console.log(orderSet.has('pizza'));
 // console.log(orderSet.has('murgi'));
@@ -191,8 +177,7 @@ console.log(hourMap);
 
 // const staffUnique = [...new Set(staff)] // to store the value in the array
 // console.log(staffUnique);
-// console.log(new Set('Istiaqahmed').size); //how many different letters in my name 
-
+// console.log(new Set('Istiaqahmed').size); //how many different letters in my name
 
 ////////////////////////////////////////////////////
 // Looping objects objects keys values & entries
@@ -222,10 +207,6 @@ console.log(hourMap);
 //   console.log(`On ${day} we open at ${open} and close at ${close} `);
 // }
 
-
-
-
-
 ///////////////////////////////////////////////////
 // Optional Chaining
 
@@ -245,7 +226,6 @@ console.log(hourMap);
 //   const open = restaurant.openingHours[day]?.open ?? 'closed';
 //   console.log(`On ${day}, we open at ${open}`);
 // }
-
 
 // // methods
 // console.log(restaurant.order?.(0,1) ?? 'Method does not exist' );
@@ -637,7 +617,6 @@ team1 > team2 ?? console.log('Team 2 is more likely to win');
 
 */
 
-
 ///////==========COADING CHALLENGE 2==========\\\\\\\
 
 // QUESTION:
@@ -743,7 +722,6 @@ for(const odd of odds)
 
 
 */
-
 
 ///////==========COADING CHALLENGE 3==========\\\\\\\
 
@@ -859,9 +837,8 @@ checkMiddleSeat('3E')
 
 */
 
-
 //============Working With Strings Part-2==============\\
-
+/*
 const airline = 'TAP Air Portugal';
 
 console.log(airline.toLowerCase());
@@ -932,6 +909,59 @@ checkBagage('I have a laptop, some food and a pocket Knife');
 checkBagage('I have some socks and camera');
 checkBagage('Got some snacks and a gun for protection');
 
-
+*/
 
 //============Working With Strings Part-3==============\\
+/*
+//split and join method
+console.log('a+very+nice+string'.split('+'));
+console.log('Istiaq Ahmed'.split(' '));
+const [firstName, lastName] = 'Istiaq Ahmed'.split(' ');
+
+const newName = ['Md.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const captializeName = name => {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+captializeName('jessica ann smith davis');
+captializeName('istiaq ahmed');
+
+// padding
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log(message.padEnd(25, '+'));
+
+const maskCreditCard = number => {
+  const str = number + ''; //convery the number into string
+  const last = str.slice(-4);
+  const encriptCardNum = last.padStart(str.length, '*');
+  console.log(encriptCardNum);
+};
+
+maskCreditCard(12345678912345);
+maskCreditCard('987654321987654321');
+
+// repeat method
+
+const message2 = 'Bad Weather... All Departures Delayed...';
+
+console.log(message2.repeat(5));
+
+const planeInLine = n =>{
+  console.log(`There are ${n} planes in line ${'✈ '.repeat(n)}`);
+}
+
+planeInLine(10);
+planeInLine(5);
+planeInLine(3);
+
+*/
