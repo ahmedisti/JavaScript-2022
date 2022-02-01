@@ -812,4 +812,55 @@ for(const [minute,event] of gameEvents){
 
 //============================================\\
 
-//
+//============Working With Strings Part-1==============\\
+/*
+const airline = 'Biman Bangladesh';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+console.log(airline.length);
+console.log('B723'.length);
+
+
+//string method
+
+console.log(airline.indexOf('d'));
+
+console.log(airline.indexOf('bangladesh'));
+
+console.log(airline.slice(6));
+
+console.log(airline.slice(0,airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ')+1));
+console.log(airline.slice(-5));
+console.log(airline.slice(1,-1));
+
+const checkMiddleSeat =  function(seat){
+
+  // B and E are middle sit
+
+  const s = seat.slice(-1);
+
+  if(s === 'B' || s === 'E'){
+    console.log(`${seat}: You got the middle seat `);
+  }
+  else{
+    console.log(`${seat}: You didn't got the middle seat `);
+  }
+  
+}
+
+checkMiddleSeat('11B')
+checkMiddleSeat('23C')
+checkMiddleSeat('3E')
+
+
+*/
+
+
+//============Working With Strings Part-2==============\\
+
+
+//============Working With Strings Part-3==============\\
