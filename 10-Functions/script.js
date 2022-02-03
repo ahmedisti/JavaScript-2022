@@ -105,3 +105,37 @@ createBooking('BC234',undefined,1000); // when we don't want to pass the numPass
 
 // addEventListener --> higher order function
 // greet --> call back function
+
+
+//========== Function accepting callback function ==========\\
+
+// const oneWord = function(str){
+//     return str.replaceAll(' ','').toLowerCase();
+// }
+// const upperFirstWord = function(str){
+//     const [first,...others] = str.split(' ');
+//     return [first.toUpperCase(),...others].join(' ');
+// }
+
+// //higher order function
+// const transformer = function(str,fn){
+//     console.log(`Orginal String: ${str}`);
+//     console.log(`Transformed string: ${fn(str)}`);
+
+
+//     console.log(`Transformed by: ${fn.name} <--Function`);
+//     console.log('-------------------------------------------');
+// }
+
+// transformer('JavaScript is the best',upperFirstWord) // upperFirstWord is the callback func
+// transformer('JavaScript is the best',oneWord) // oneWord is the callback func
+
+// // JS uses callback all the time
+// const high5 = function(){
+//     console.log('✋');
+// }
+
+// document.body.addEventListener('click',high5); // here high5 is the callback function and addEventListener is the higher order function
+
+
+// ['istiaq','ibnul','tashpiq'].forEach(high5);
