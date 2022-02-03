@@ -139,3 +139,32 @@ createBooking('BC234',undefined,1000); // when we don't want to pass the numPass
 
 
 // ['istiaq','ibnul','tashpiq'].forEach(high5);
+
+
+//========== Function Returning ==========\\
+
+// const greet = function(greeting){
+
+//     return function(name){
+//         console.log(`${greeting} ${name}`);
+//     }
+
+// }
+
+
+// const greetHello = greet('Hello'); // here the greetHello is the return function
+
+// greetHello('Istiaq');
+// greetHello('Torres');
+
+// greet('Hy')('Ahmed');
+
+
+// // Arrow function implementation challenge
+
+// const greet1 = greeting1 => name1 =>  console.log(`${greeting1} ${name1}`);
+     
+// const greetHy = greet1('Salam');
+
+// greetHy('Karim Akka');
+
