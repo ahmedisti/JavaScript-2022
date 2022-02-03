@@ -168,3 +168,68 @@ createBooking('BC234',undefined,1000); // when we don't want to pass the numPass
 
 // greetHy('Karim Akka');
 
+
+//========== The call and apply menthods ==========\\
+
+// const lufthansa = {
+//     airline: 'Lufthansa',
+//     iataCode: 'LH',
+//     bookings: [],
+//     // book: function(){}, // same as below
+//     book(flightNum,name){
+//         console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//         );
+
+//         this.bookings.push({flight:` ${this.iataCode}${flightNum}`,name})
+
+//     },
+// };
+
+// lufthansa.book(239,'Istiaq');
+// lufthansa.book(123,'Ahmed');
+
+
+// const eurowings = {
+//     airline:'Eurowings',
+//     iataCode:'EW',
+//     bookings:[],
+// }
+
+
+// const book = lufthansa.book;
+
+// // does not work
+// // book(23,'isti'); not a method it is a regular function call and in regular func the this keyword is undefined
+
+// // The Call Method \\
+
+// book.call(eurowings, 23,'isti'); // allow us to set manually the this keyword we want to point to here we point it to the book method in the lufthansa object
+// book.call(lufthansa,123,'Neymar Jr');
+// console.log('---------------------------------------');
+// console.log(lufthansa);
+// console.log('---------------------------------------');
+// console.log(eurowings);
+// console.log('---------------------------------------');
+
+
+// const bangla = {
+//     airline:'Biman Bangladesh',
+//     iataCode: 'BNG',
+//     bookings:[]
+// }
+
+// book.call(bangla,1971,'Lionel Messi');
+// console.log(bangla);
+
+
+// // the apply method
+
+// const flightData = [127,'Ronaldo'];
+
+// book.apply(bangla,flightData); // have to pass the data in an array but does not use in mordern JavaScript
+
+// book.call(bangla,...flightData);
+
+// console.log(bangla);
+
+
