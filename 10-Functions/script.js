@@ -81,3 +81,27 @@ createBooking('BC234',undefined,1000); // when we don't want to pass the numPass
 
 // newPassport(istiaq)
 // checkIn(flight,istiaq);
+
+
+//========== First class & Higher order function ==========\\
+
+// First class function
+// 1.Js trates func as first class func
+// 2. function are simply values
+// 3. functions are jusr another "type" of object
+
+
+
+
+// Higher order function
+// 1. A func thatb receives another func as an arguments , that returns a new func or both
+// 2. this is only possible because of first class func
+
+// 1. func receive another func
+
+// const greet = () => console.log('Hello Istiaq');
+
+// btnClose.addEventListener('click',greet); here eventlistener function is the higher order func because it receives another function as input and here it is the greet function
+
+// addEventListener --> higher order function
+// greet --> call back function
