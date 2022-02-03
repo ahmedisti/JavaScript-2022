@@ -222,7 +222,7 @@ createBooking('BC234',undefined,1000); // when we don't want to pass the numPass
 // console.log(bangla);
 
 
-// // the apply method
+// // the apply method \\
 
 // const flightData = [127,'Ronaldo'];
 
@@ -233,3 +233,52 @@ createBooking('BC234',undefined,1000); // when we don't want to pass the numPass
 // console.log(bangla);
 
 
+// // The Bind Method \\
+
+// const bookEW = book.bind(eurowings);
+// bookEW(999,'Ferran Torres');
+
+// const bookBNG= book.bind(bangla);
+// bookBNG(888,'Ansu Fati');
+
+// const bookBNG2022= book.bind(bangla,2022); // fixed the flight number arguments so when we call the function we basically need to pass the name arguments
+
+// bookBNG2022('Pabolo Gavi')
+
+// // eventListener apply bind method
+
+// lufthansa.planes = 300;
+
+// lufthansa.buyPlane = function(){
+//     console.log(this);
+//     this.planes++;
+//     console.log(this.planes);
+// };
+
+// document.querySelector('.buy').addEventListener('click',lufthansa.buyPlane.bind(lufthansa));
+
+
+// // Partial Application
+
+// const addTax = (rate,value) => value + value * rate;
+
+// console.log(addTax(0.1,200));
+
+// const addVat = addTax.bind(null,0.23);
+// // addVat = value => value + value * 0.23;
+
+// console.log(addVat(100));
+
+// // const greet1 = greeting1 => name1 =>  console.log(`${greeting1} ${name1}`);
+     
+// // const greetHy = greet1('Salam');
+
+// // greetHy('Karim Akka');
+
+// // practice challenge
+
+// const addTaxBd = vatRate => totalAmt => console.log(`${totalAmt + totalAmt * vatRate}`);
+
+// const addVatBd = addTaxBd(.22);
+
+// addVatBd(100);
