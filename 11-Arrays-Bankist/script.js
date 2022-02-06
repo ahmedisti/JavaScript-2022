@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -117,3 +117,49 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // // join method
 
 // console.log(letters.join(' - '));
+
+
+//======== Looping Array forEach ========\\
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for of method
+
+// for(const movement of movements)
+// for(const [i , movement] of movements.entries()){
+//   if(movement>0){
+//     console.log(`Movement${i+1}: You deposite ${movement}`);
+//   }
+//   else{
+//     console.log(`Movement${i+1}: You withdraw ${Math.abs(movement)}`);
+//   }
+// }
+// console.log('===============FOR EACH=============');
+
+// // forEach method
+
+// // 1. break statement do not work here
+
+// movements.forEach(function(items,indexNum,array){ 
+
+//   // items = current element
+//   // indexNum =  current index
+//   // array =  the total array
+//   // always have to follow this sequence
+
+//   if(items>0){
+//     console.log(`Movement${indexNum+1}: You deposite ${items}`);
+    
+//   }
+//   else{
+//     console.log(`Movement${indexNum+1}: You withdraw ${Math.abs(items)}`);
+//   }
+//   // console.log(array);
+
+// });
+
+// How it work
+// 0: function(200)
+// 1: function(450)
+// 2: function(400)
+// ... continue till the last value
