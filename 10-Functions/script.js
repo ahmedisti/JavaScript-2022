@@ -367,4 +367,31 @@ Hints: Use many of the tools you learned about in this and the last section 😉
 //     document.querySelector('.poll').addEventListener('click',poll.registerNewAnswer.bind(poll));
 //     poll.displayResult.call({answers: [5,2,3]},'string'); // check line 354
 
-    
+
+//========== Immediately invoked function expression==========\\
+
+//This function expression just one time
+
+// const runOnce = function(){
+//     console.log('This will never run again');
+//     const isPrivate = 23;
+//     // can't acces outside this scope and it is useful for privacy
+// };
+// runOnce();
+// //IIFE
+// (
+// function(){
+//     console.log('This will never run again');
+// })();
+
+// (
+//      ()=>{
+//         console.log('This arrow will never run once');
+//     })();
+
+//     {
+//         const isPrivate1 = 23;
+//         var notPrivate = 24;
+//     };
+
+
