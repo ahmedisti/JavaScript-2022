@@ -395,3 +395,21 @@ Hints: Use many of the tools you learned about in this and the last section 😉
 //     };
 
 
+//========== Closures ==========\\
+
+// const secureBooking = function(){
+//     let passengerCount = 0;
+
+
+//     return function(){
+//         passengerCount++;
+//         console.log(`${passengerCount} passenger`);
+//     }
+// }
+
+// const booker = secureBooking();
+
+// booker();
+// booker();
+// booker();
+// console.dir(booker);
