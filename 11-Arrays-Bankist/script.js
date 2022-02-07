@@ -252,3 +252,55 @@ const checkDogs =  function(dogsJulia,dogsKate){
 checkDogs(juliaDataCopy,kateDataCopy)
 
 */
+
+//======== Data Transformation (map,filter,reduce) ========\\
+
+//--------------The Map Method--------------\\
+
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const eurToUsd = 1.1;
+
+// const movementsUsd = movementsAgian.map(function(items){
+// //functional programming
+//   return items*eurToUsd;
+// });
+// console.log(movementsAgian);
+// console.log(movementsUsd);
+
+// console.log(`=================Arrow Function================`);
+// const movementsUsdArrow = movementsAgian.map (item => item*eurToUsd);
+// console.log(`Arrow Function ${movementsUsdArrow}`);
+
+
+// console.log(`=================For Of================`);
+
+// const movementsAgianForOf = [];
+// for (const mov of movementsAgian){
+//   movementsAgianForOf.push(mov * eurToUsd);
+// }
+// console.log(movementsAgianForOf);
+
+// const movementDescription = movementsAgian.map((items,indexNum) => 
+
+//   `Movement${indexNum + 1}: You ${items > 0 ? 'deposited' : 'withdrew'} ${Math.abs(items)}:`
+  
+//   // items = current element
+//   // indexNum =  current index
+//   // array =  the total array
+//   // always have to follow this sequence
+
+// // map method call the function and return a new array
+
+
+
+//   // if(){
+//   //   return ;
+    
+//   // }
+//   // else{
+//   //   return `;
+//   // }
+  
+// )
+// console.log(movementDescription);
