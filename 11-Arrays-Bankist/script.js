@@ -78,6 +78,15 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+// print total balance
+
+const calcDisplayBalance = function(movements){
+  const balance = movements.reduce((acc,mov) => acc + mov ,0);
+  labelBalance.textContent = `${balance}€`;
+}
+
+calcDisplayBalance(account1.movements);
+
 
 // to create user name using for each and map method
 
@@ -94,7 +103,9 @@ const createUserNames = function (accs) {
   
 };
 createUserNames(accounts);
-console.log(accounts);
+
+
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -331,3 +342,34 @@ checkDogs(juliaDataCopy,kateDataCopy)
 // for (const mov of movementsAgian) if (mov > 0){ depositForPush.push(mov); 
 // }
 // console.log(depositForPush);
+
+
+//--------------The Reduce Method--------------\\
+
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movementsAgian);
+
+//Accumulator --> SNOWBALL
+// const balance = movementsAgian.reduce(function(accumulator,cur,i,arr){
+//   console.log(`Interation ${i}: ${accumulator}`);
+//   return accumulator + cur;
+// },0)
+
+// Arrow function
+// const balance = movementsAgian.reduce((accumulator,cur) => accumulator + cur ,0) // accumulator initial value assign as 0
+// console.log(balance);
+
+// //for of loop
+// let balance2 = 0;
+// for(const mov of movementsAgian){
+//   balance2 += mov;
+// }
+// console.log(balance2);
+
+
+// // max value of the movmentAgain
+
+// const max = movementsAgian.reduce((acc,current) => acc > current ? acc : current, movementsAgian[0] )
+
+// console.log(max);
+
