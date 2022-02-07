@@ -13,7 +13,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Istiaq Ahmed',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -61,28 +61,40 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function(movements){
-
+const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
-movements.forEach(function(mov,i){
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
 
-  const type  = mov > 0 ? 'deposit' : 'withdrawal'
-
-  const html = `<div class="movements__row">
+    const html = `<div class="movements__row">
   <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
   <div class="movements__value">${mov}</div>
 </div>
 `;
 
-containerMovements.insertAdjacentHTML('afterbegin',html);
-
-
-});
-
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
 };
-
 displayMovements(account1.movements);
+
+
+// to create user name using for each and map method
+
+const createUserNames = function (accs) {
+
+  accs.forEach(function(acc){
+
+    acc.userName = acc.owner
+    .toLowerCase()
+    .split(' ')
+    .map(name => name[0])
+    .join('');
+  })
+  
+};
+createUserNames(accounts);
+console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -97,7 +109,6 @@ const currencies = new Map([
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-
 
 //======== Simple Array Method ========\\
 
@@ -117,11 +128,10 @@ const currencies = new Map([
 
 // arr.splice(-1) ; // delete the last element of the array
 // console.log(arr);
-// arr.splice(1,2); // the 1 is the start point and 2 is the number of element we want to delete including the startpoint 
+// arr.splice(1,2); // the 1 is the start point and 2 is the number of element we want to delete including the startpoint
 // console.log(arr);
 
 // // reverse
-
 
 // arr = ['a','b','c','d','e'];
 
@@ -136,11 +146,9 @@ const currencies = new Map([
 // console.log(letters);
 // console.log([...arr,...arr2]); //alternative way to concat and does not muted the orginal array
 
-
 // // join method
 
 // console.log(letters.join(' - '));
-
 
 //======== Looping Array forEach ========\\
 
@@ -163,7 +171,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // // 1. break statement do not work here
 
-// movements.forEach(function(items,indexNum,array){ 
+// movements.forEach(function(items,indexNum,array){
 
 //   // items = current element
 //   // indexNum =  current index
@@ -172,7 +180,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //   if(items>0){
 //     console.log(`Movement${indexNum+1}: You deposite ${items}`);
-    
+
 //   }
 //   else{
 //     console.log(`Movement${indexNum+1}: You withdraw ${Math.abs(items)}`);
@@ -272,7 +280,6 @@ checkDogs(juliaDataCopy,kateDataCopy)
 // const movementsUsdArrow = movementsAgian.map (item => item*eurToUsd);
 // console.log(`Arrow Function ${movementsUsdArrow}`);
 
-
 // console.log(`=================For Of================`);
 
 // const movementsAgianForOf = [];
@@ -281,10 +288,10 @@ checkDogs(juliaDataCopy,kateDataCopy)
 // }
 // console.log(movementsAgianForOf);
 
-// const movementDescription = movementsAgian.map((items,indexNum) => 
+// const movementDescription = movementsAgian.map((items,indexNum) =>
 
 //   `Movement${indexNum + 1}: You ${items > 0 ? 'deposited' : 'withdrew'} ${Math.abs(items)}:`
-  
+
 //   // items = current element
 //   // indexNum =  current index
 //   // array =  the total array
@@ -292,15 +299,13 @@ checkDogs(juliaDataCopy,kateDataCopy)
 
 // // map method call the function and return a new array
 
-
-
 //   // if(){
 //   //   return ;
-    
+
 //   // }
 //   // else{
 //   //   return `;
 //   // }
-  
+
 // )
 // console.log(movementDescription);
