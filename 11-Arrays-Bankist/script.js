@@ -309,3 +309,25 @@ checkDogs(juliaDataCopy,kateDataCopy)
 
 // )
 // console.log(movementDescription);
+
+
+//--------------The Filter Method--------------\\
+
+
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const deposits = movementsAgian.filter(function(mov){
+//   return mov > 0;
+
+// });
+// console.log(movementsAgian);
+// console.log(deposits);
+
+// const withdrawal = movementsAgian.filter(withdraw => withdraw < 0);
+// console.log(withdrawal);
+
+// // Using for of loop for the same secnario
+// const depositForPush = []
+// for (const mov of movementsAgian) if (mov > 0){ depositForPush.push(mov); 
+// }
+// console.log(depositForPush);
