@@ -80,32 +80,52 @@ displayMovements(account1.movements);
 
 // print total balance
 
-const calcDisplayBalance = function(movements){
-  const balance = movements.reduce((acc,mov) => acc + mov ,0);
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
-}
+};
 
 calcDisplayBalance(account1.movements);
 
+const calcDisplaySummary = function (movements) {
+
+  //Calculate IN
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+//Calculate OUT
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  //Calculate INTEREST
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((interest,i,array) => {
+      console.log(array);
+      return interest >= 1;
+    })
+    .reduce((acc, interest) => acc + interest, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+calcDisplaySummary(account1.movements);
 
 // to create user name using for each and map method
 
 const createUserNames = function (accs) {
-
-  accs.forEach(function(acc){
-
+  accs.forEach(function (acc) {
     acc.userName = acc.owner
-    .toLowerCase()
-    .split(' ')
-    .map(name => name[0])
-    .join('');
-  })
-  
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
 };
 createUserNames(accounts);
-
-
-
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -163,7 +183,7 @@ const currencies = new Map([
 
 //======== Looping Array forEach ========\\
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // for of method
 
@@ -321,9 +341,7 @@ checkDogs(juliaDataCopy,kateDataCopy)
 // )
 // console.log(movementDescription);
 
-
 //--------------The Filter Method--------------\\
-
 
 // const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -339,10 +357,9 @@ checkDogs(juliaDataCopy,kateDataCopy)
 
 // // Using for of loop for the same secnario
 // const depositForPush = []
-// for (const mov of movementsAgian) if (mov > 0){ depositForPush.push(mov); 
+// for (const mov of movementsAgian) if (mov > 0){ depositForPush.push(mov);
 // }
 // console.log(depositForPush);
-
 
 //--------------The Reduce Method--------------\\
 
@@ -365,7 +382,6 @@ checkDogs(juliaDataCopy,kateDataCopy)
 //   balance2 += mov;
 // }
 // console.log(balance2);
-
 
 // // max value of the movmentAgain
 
@@ -417,3 +433,14 @@ calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
 */
+
+//--------------The Chaining Method--------------\\
+
+//PIPELINE
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const eurToUsd = 1.1;
+// const totalDepositeUSD = movementsAgian
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * eurToUsd)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDepositeUSD);
