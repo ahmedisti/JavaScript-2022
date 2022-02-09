@@ -76,43 +76,43 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
+// displayMovements(account1.movements);
 
 // print total balance
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
-calcDisplayBalance(account1.movements);
+// calcDisplayBalance(account1.movements);
 
-const calcDisplaySummary = function (movements) {
-
+const calcDisplaySummary = function (acc) {
   //Calculate IN
-  const incomes = movements
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
-//Calculate OUT
-  const out = movements
+  //Calculate OUT
+  const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
   //Calculate INTEREST
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
-    .filter((interest,i,array) => {
-      console.log(array);
+    .map(deposit => (deposit * acc.interestRate) / 100)
+    .filter((interest, i, array) => {
+      // console.log(array);
       return interest >= 1;
     })
     .reduce((acc, interest) => acc + interest, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
 
-calcDisplaySummary(account1.movements);
+// calcDisplaySummary(account1.movements);
 
 // to create user name using for each and map method
 
@@ -126,6 +126,64 @@ const createUserNames = function (accs) {
   });
 };
 createUserNames(accounts);
+
+// Function for update the UI
+
+const updateUI = function(acc){
+  //display momements
+  displayMovements(acc.movements);
+
+  //display balance
+  calcDisplayBalance(acc);
+
+  //display summary
+  calcDisplaySummary(acc);
+}
+
+// Event handlers for login
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // prevent form from submitting
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.userName === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //display ui and welcome message
+
+    labelWelcome.textContent = `Welcome Back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+
+    //clear input field
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+//update UI
+    updateUI(currentAccount);
+  }
+});
+
+btnTransfer.addEventListener('click',function(e){
+  e.preventDefault();
+  const amount  = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.userName === inputTransferTo.value
+    );
+    inputTransferAmount.value = inputTransferTo.value = '';
+    inputTransferAmount.blur();
+
+    console.log(amount,receiverAcc);
+    if(amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.userName !== currentAccount.userName ){
+      currentAccount.movements.push(-amount);
+      receiverAcc.movements.push(amount);
+      //update UI
+    updateUI(currentAccount);
+    }
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -472,5 +530,25 @@ Test data:
 
 // console.log(age1,age2);
 
+//--------------The Find Method--------------\\
 
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// const firstWitdrawal = movementsAgian.find(mov => mov < 0);
+// // returns the first element of the array that satisfy the condition
+
+// // do not return a new array it returns the element
+// console.log(firstWitdrawal);
+
+// console.log(accounts);
+
+// const account = accounts.find(acc => acc.owner === 'Istiaq Ahmed');
+// console.log(account);
+
+// // using for of loop
+// for(const accountFor of accounts){
+//   if(accountFor.owner === 'Istiaq Ahmed')
+//   console.log(accountFor);
+// }
+
+//--------------The  Method--------------\\
