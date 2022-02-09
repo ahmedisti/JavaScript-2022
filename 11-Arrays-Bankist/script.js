@@ -61,10 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements,sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a,b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `<div class="movements__row">
@@ -231,6 +233,15 @@ btnClose.addEventListener('click', function (e) {
   inputClosePin.value = inputCloseUsername.value = '';
   inputClosePin.blur();
 });
+
+//sort functionality initialy the data are unsorted
+let sorted = false;
+btnSort.addEventListener('click',function(e){
+  e.preventDefault();
+  console.log('sort');
+  displayMovements(currentAccount.movements,!sorted);
+  sorted = !sorted;
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -650,3 +661,42 @@ Test data:
 // .flatMap(acc => acc.movements) // only goes one level deep
 // .reduce((acc,mov) => acc + mov,0);
 // console.log(allMovementsTotalChaining2);
+
+
+//--------------Sorting method--------------\\
+//strings
+// const owners = ['Pique','Busi','Alves','Gavi'];
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// console.log(owners.sort());
+// console.log(owners); // mutate the orginal array
+
+// //numbers
+// console.log(movementsAgian);
+// console.log(movementsAgian.sort()); //sort in the alphabetic way by default
+
+// // return < 0 A,B (KEEP ORDER) a < b
+// // return > 0 B,A (SWITCH ORDER) a > b
+// //assending
+// // movementsAgian.sort((a,b) => {
+// //   if(a > b)
+// //   return 1;
+// //   if(a < b)
+// //   return -1;
+// // })
+// //improve version
+// movementsAgian.sort((a,b) => a - b);
+// console.log(movementsAgian);
+// //desending
+// // movementsAgian.sort((a,b) => {
+
+// //   if(a > b)
+// //   return -1;
+// //   if(a < b)
+// //   return 1;
+// // })
+
+// //improve version
+// movementsAgian.sort((a,b) => b - a);
+// console.log(movementsAgian);
+// //does not work with mix array like strings and numbers together
