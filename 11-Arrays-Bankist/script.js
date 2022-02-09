@@ -619,3 +619,34 @@ Test data:
 
 // const depoite = mov => mov > 0;
 // console.log(movementsAgian.some(depoite));
+
+//--------------Flat and flatMap Method--------------\\
+
+// //flat
+// const arr = [[1,2,3],[4,5,6],7,8]; //nested array
+
+// console.log(arr.flat()); // we get all the arrays in one single array
+
+// const arrDeep = [[[[1],2],3],[4,[5,6]],7,8]; //super nested
+// console.log(arrDeep.flat(3)); // the three is the level here
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+
+// const allMovementsTotal = allMovements.reduce((acc,mov) => acc + mov,0);
+// console.log(allMovementsTotal);
+// //using chaining method
+
+// const allMovementsTotalChaining = accounts
+// .map(acc => acc.movements)
+// .flat()
+// .reduce((acc,mov) => acc + mov,0);
+// console.log(allMovementsTotalChaining);
+
+// // flatMap flat+map method together
+
+// const allMovementsTotalChaining2 = accounts
+// .flatMap(acc => acc.movements) // only goes one level deep
+// .reduce((acc,mov) => acc + mov,0);
+// console.log(allMovementsTotalChaining2);
