@@ -82,7 +82,7 @@ const displayMovements = function (movements) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  
+
   labelBalance.textContent = `${acc.balance}€`;
 };
 
@@ -129,7 +129,7 @@ createUserNames(accounts);
 
 // Function for update the UI
 
-const updateUI = function(acc){
+const updateUI = function (acc) {
   //display momements
   displayMovements(acc.movements);
 
@@ -138,7 +138,7 @@ const updateUI = function(acc){
 
   //display summary
   calcDisplaySummary(acc);
-}
+};
 
 // Event handlers for login
 let currentAccount;
@@ -162,50 +162,75 @@ btnLogin.addEventListener('click', function (e) {
     //clear input field
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
-//update UI
+    //update UI
     updateUI(currentAccount);
   }
 });
 
 // transfer amount
 
-btnTransfer.addEventListener('click',function(e){
+btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount  = Number(inputTransferAmount.value);
+  const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(
     acc => acc.userName === inputTransferTo.value
-    );
-    inputTransferAmount.value = inputTransferTo.value = '';
-    inputTransferAmount.blur();
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+  inputTransferAmount.blur();
 
-    console.log(amount,receiverAcc);
-    if(amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.userName !== currentAccount.userName ){
-      currentAccount.movements.push(-amount);
-      receiverAcc.movements.push(amount);
-      //update UI
+  console.log(amount, receiverAcc);
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.userName !== currentAccount.userName
+  ) {
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    //update UI
     updateUI(currentAccount);
-    }
-})
+  }
+});
 
+//loan amount
+btnLoan.addEventListener('click',function(e){
+
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if(amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1) ){
+    //add the movement
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+    inputLoanAmount.value = '';
+    inputLoanAmount.blur();
+
+
+  }
+})
 //close account
 
-btnClose.addEventListener('click',function(e){
+
+btnClose.addEventListener('click', function (e) {
   e.preventDefault();
-  if(inputCloseUsername.value === currentAccount.userName && Number(inputClosePin.value) === currentAccount.pin){
-
-
-    const index = accounts.findIndex(acc => acc.userName === currentAccount.userName)
+  if (
+    inputCloseUsername.value === currentAccount.userName &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.userName === currentAccount.userName
+    );
     console.log(index);
 
     //delete account
-    accounts.splice(index,1);
+    accounts.splice(index, 1);
 
     //hide UI
     containerApp.style.opacity = 0;
   }
   inputClosePin.value = inputCloseUsername.value = '';
-    inputClosePin.blur();
-})
+  inputClosePin.blur();
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -573,4 +598,24 @@ Test data:
 //   console.log(accountFor);
 // }
 
-//--------------The  Method--------------\\
+//--------------Some & Every--------------\\
+
+// //some
+// const movementsAgian = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movementsAgian);
+// //check equality
+// console.log(movementsAgian.includes(-130));
+// //Check condition
+// const anyDepo = movementsAgian.some( mov => mov > 1500);
+// console.log(anyDepo);
+
+// //every
+// //only return true if all the element meet the desire condition
+// console.log(movementsAgian.every(mov => mov > 0)); //false
+// console.log(account4.movements.every(mov => mov > 0)); //true
+
+
+// //separate callback
+
+// const depoite = mov => mov > 0;
+// console.log(movementsAgian.some(depoite));
