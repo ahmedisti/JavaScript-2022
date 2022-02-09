@@ -167,6 +167,8 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+// transfer amount
+
 btnTransfer.addEventListener('click',function(e){
   e.preventDefault();
   const amount  = Number(inputTransferAmount.value);
@@ -183,6 +185,26 @@ btnTransfer.addEventListener('click',function(e){
       //update UI
     updateUI(currentAccount);
     }
+})
+
+//close account
+
+btnClose.addEventListener('click',function(e){
+  e.preventDefault();
+  if(inputCloseUsername.value === currentAccount.userName && Number(inputClosePin.value) === currentAccount.pin){
+
+
+    const index = accounts.findIndex(acc => acc.userName === currentAccount.userName)
+    console.log(index);
+
+    //delete account
+    accounts.splice(index,1);
+
+    //hide UI
+    containerApp.style.opacity = 0;
+  }
+  inputClosePin.value = inputCloseUsername.value = '';
+    inputClosePin.blur();
 })
 
 /////////////////////////////////////////////////
