@@ -700,3 +700,23 @@ Test data:
 // movementsAgian.sort((a,b) => b - a);
 // console.log(movementsAgian);
 // //does not work with mix array like strings and numbers together
+
+
+//---------More ways to CREATING & FILLING array---------\\
+// const arr = [1,2,3,4,5,6,7];
+
+// // empty arrays +  fill method
+// const x = new Array(7);
+// console.log(x);
+// x.fill(0,3,5);
+// console.log(x);
+// arr.fill(97,3,6);
+// console.log(arr);
+
+// //Array.form
+
+// const y = Array.from({length:7},() => 1);
+// console.log(y);
+// const z = Array.from({length:7},(_,i) => i+1);
+// console.log(z);
+
