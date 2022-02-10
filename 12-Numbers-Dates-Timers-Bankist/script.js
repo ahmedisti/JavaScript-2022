@@ -359,3 +359,32 @@ btnSort.addEventListener('click', function (e) {
 // console.log(typeof 20n);
 // // division
 // console.log( 10n / 3n);
+
+
+//==========Creating Dates==========\\
+
+// create a date
+
+// const now = new Date();
+// console.log(now);
+// console.log(new Date('Thu Feb 10 2022 14:08:29 GMT+0600'));
+// console.log(new Date('December 24,2015'));
+
+// console.log(new Date(account1.movementsDates[0]));
+
+// console.log(new Date(2022, 1, 10, 2 , 56 , 5));
+// console.log(new Date(0));
+// console.log(new Date(3*24*60*60*1000));
+
+// //working with dates
+
+// const future = new Date(2025, 1, 10, 2 , 56)
+// console.log(future);
+// console.log(future.getFullYear());
+// console.log(future.getMonth() + 1);
+// console.log(future.getDate());
+// console.log(future.getDay());
+// console.log(future.getHours());
+// console.log(future.getMinutes());
+// console.log(future.getSeconds());
+// console.log(future.toISOString());
