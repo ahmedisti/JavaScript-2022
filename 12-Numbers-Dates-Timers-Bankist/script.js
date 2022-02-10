@@ -108,7 +108,7 @@ const displayMovements = function (acc, sort = false) {
 
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formateMovementDate(date,acc.locale);
-    console.log(displayDate);
+    // console.log(displayDate);
     // `${day}/${month}/${year}`;
     const html = `
       <div class="movements__row">
@@ -226,6 +226,8 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
+startLogOutTimer();
+
 
     // Update UI
     updateUI(currentAccount);
@@ -304,6 +306,34 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+const startLogOutTimer = function(){
+  //set the time to 5 min
+ let time = 10;
+
+ const tick = function(){
+  const min = String(Math.trunc(time / 60)).padStart(2,0);
+  const sec = String(time % 60).padStart(2,0);
+
+//in each call display the time to ui
+labelTimer.textContent = `${min}:${sec}`;
+
+// when 0 sec log out user and stop timer
+if(time === 0){
+  clearInterval(timer);
+  labelWelcome.textContent = 'Log In to get access';
+  containerApp.style.opacity = 0;
+}
+//decrease the time
+time--;
+
+};
+tick();
+
+  //callthe timer evey sec
+  const timer = setInterval(tick,1000)
+
+}
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
