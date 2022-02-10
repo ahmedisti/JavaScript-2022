@@ -720,3 +720,60 @@ Test data:
 // const z = Array.from({length:7},(_,i) => i+1);
 // console.log(z);
 
+//--------------ARRAY METHOD PRACTICE--------------\\
+
+// // 1.
+// const bankDepositSum = accounts
+// .flatMap(acc => acc.movements)
+// .filter(mov => mov > 0)
+// .reduce((acc,value) => acc + value,0);
+// console.log(bankDepositSum);
+
+// // 2.
+
+// // const numDeposite1000 = accounts.flatMap(acc => acc.movements)
+// // .filter(mov => mov >= 1000).length;
+
+// const numDeposite1000 = accounts.flatMap(acc => acc.movements)
+// // .reduce((count,currentValue) => currentValue >= 1000 ? count + 1 : count,0);
+// .reduce((count,currentValue) => currentValue >= 1000 ? ++count : count,0);
+// console.log(numDeposite1000);
+
+// //prefixed ++ operator
+
+// let a = 10;
+// console.log(++a);
+// console.log(a);
+
+// // 3.
+
+// const {deposit,withdraw} = accounts
+// .flatMap(acc => acc.movements).reduce((sums,currentValue) => {/* currentValue > 0 ? (sums.deposit += currentValue) : (sums.withdraw += currentValue);
+//   */
+//  sums[currentValue > 0 ? 'deposit' : 'withdraw'] += currentValue
+// return sums;
+// }, 
+// {deposit:0,withdraw:0});
+// console.log(deposit,withdraw);
+
+// // 4.
+
+// // this is a nice title - This Is a Nice Title
+
+// const convertTitleCase = function(title){
+//   const exception = ['a','an','the','but','or','on','in','with','is','and'];
+//   const capitalization = str => str[0].toUpperCase() + str.slice(1);
+
+//   const titleCase = title
+//   .toLowerCase()
+//   .split(' ')
+//   .map(word => exception.includes(word) ? word : capitalization(word))
+//   .join(' ')
+//   return capitalization(titleCase);
+
+// };
+
+// console.log(convertTitleCase('this is a nice title'));
+// console.log(convertTitleCase('this is a LONG title but not too long'));
+// console.log(convertTitleCase('and here is another title with and EXAMPLE'));
+
