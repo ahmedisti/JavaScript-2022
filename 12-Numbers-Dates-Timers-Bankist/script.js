@@ -340,3 +340,22 @@ btnSort.addEventListener('click', function (e) {
 //   console.log('click');
 // });
 
+//==========Premitive data type BigInt==========\\
+//Number are represent as 64 bits 53 bits store the digits and rest of them store the postion of the decimal point
+
+// console.log(2 ** 53-1);
+// console.log(Number.MAX_SAFE_INTEGER);
+
+// console.log(123456789987456123321165478932146n);
+// console.log(BigInt(12345678998745612));
+
+// //operations
+
+
+// //exceptions
+// console.log(10000n + 10000n);
+// console.log(20n > 15);
+// console.log(20n === 20);
+// console.log(typeof 20n);
+// // division
+// console.log( 10n / 3n);
