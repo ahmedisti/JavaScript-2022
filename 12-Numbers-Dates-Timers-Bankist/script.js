@@ -451,3 +451,33 @@ btnSort.addEventListener('click', function (e) {
 
 // const days =  calcDaysPassed(new Date(2037,3,14), new Date(2037,3,24));
 // console.log(days);
+// const optionsn = {
+//   style:'unit',
+//   unit:'mile-per-hour'
+// }
+// const num = 3884764.23;
+// console.log('US:',Intl.NumberFormat('en-US',optionsn).format(num));
+// console.log('Germany:',Intl.NumberFormat('de-DE',optionsn).format(num));
+
+
+//==========Set time out and setinterval==========\\
+
+// //settimeout
+// const ingridients = ['olives','']
+// const pizzaTimeer = setTimeout((ing1,ing2) => {
+//   console.log(`here is your pizza with ${ing1} and ${ing2}`);
+  
+// }, 3000,...ingridients);
+// console.log('waiting');
+
+// if(ingridients.includes('spinich')) clearTimeout(pizzaTimeer); // to kill the set timout function
+
+// //set interval
+
+// setInterval(() => {
+//   const now = new Date();
+//   console.log(now);
+  
+// }, 10000);
+
+
