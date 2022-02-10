@@ -324,3 +324,19 @@ btnSort.addEventListener('click', function (e) {
 // console.log((2.7).toFixed(3));
 // console.log(+(2.7234).toFixed(3));
 
+//==========Reminder operator==========\\
+
+// console.log(5 % 2);
+
+// const isEven = n => n % 2 === 0;
+
+// console.log(isEven(10));
+// console.log(isEven(3));
+
+// labelBalance.addEventListener('click',function(){
+//   [...document.querySelectorAll('.movements__row')].forEach(function(row,i){
+//     if(i % 2 === 0) row.style.backgroundColor = 'red';
+//   });
+//   console.log('click');
+// });
+
