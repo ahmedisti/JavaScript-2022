@@ -19,8 +19,7 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-btnsOpenModal.forEach(btn => btn.addEventListener('click',openModal))
-
+btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
@@ -74,7 +73,6 @@ document.addEventListener('keydown', function (e) {
 //   message.parentElement.removeChild(message); // old way
 // })
 
-
 // //======== style attributs and classes ========\\
 
 // // styles
@@ -91,7 +89,6 @@ document.addEventListener('keydown', function (e) {
 
 // document.documentElement.style.setProperty('--color-primary', 'orangered')
 
-
 // //attributes
 
 // const logo = document.querySelector('.nav__logo');
@@ -101,7 +98,6 @@ document.addEventListener('keydown', function (e) {
 
 // logo.setAttribute('company', 'Bank Sheba' );
 
-
 // console.log(logo.src);
 // console.log(logo.getAttribute('src'));
 
@@ -109,11 +105,9 @@ document.addEventListener('keydown', function (e) {
 // console.log(link.href);
 // console.log(link.getAttribute('href'));
 
-
 // // data attributes
 
 // console.log(logo.dataset.versionNumber);
-
 
 // // classes
 
@@ -125,22 +119,23 @@ document.addEventListener('keydown', function (e) {
 // // Do not use overwrite the existing classes
 // logo.className = 'Isti';
 
-
 //======== smooth scrolling ========\\
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
-btnScrollTo.addEventListener('click',function(e){
-
+btnScrollTo.addEventListener('click', function (e) {
   const s1coord = section1.getBoundingClientRect();
   console.log(s1coord);
 
   console.log(e.target.getBoundingClientRect());
-  console.log('current scroll (x/y)',window.pageXOffset,pageYOffset);
+  console.log('current scroll (x/y)', window.pageXOffset, pageYOffset);
 
-
-  console.log('height/width viewport',document.documentElement.clientHeight,document.documentElement.clientWidth);
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
 
   //scrolling
   // window.scrollTo(
@@ -148,15 +143,38 @@ btnScrollTo.addEventListener('click',function(e){
   //   );
 
   // old way support in old browser
-    // window.scrollTo({
-    //  left: s1coord.left + window.pageXOffset,
-    //  top: s1coord.top + window.pageYOffset,
-    //  behavior: 'smooth',
-    // });
+  // window.scrollTo({
+  //  left: s1coord.left + window.pageXOffset,
+  //  top: s1coord.top + window.pageYOffset,
+  //  behavior: 'smooth',
+  // });
 
-    //morder way support in morder browser
+  //morder way support in morder browser
 
-    section1.scrollIntoView({
-      behavior:'smooth',
-    })
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
 });
+
+
+//======== Type of event and event handlers ========\\
+
+// //mordern way
+// const h1 = document.querySelector('h1');
+
+// const alertH1 = function(e){
+
+//   alert('addEventListener: Great! You are reading the heading :D');
+//   // h1.removeEventListener('mouseenter',alertH1); // only repeat the event one time
+//   setTimeout(() => h1.removeEventListener('mouseenter',alertH1),3000)
+// }
+
+// h1.addEventListener('mouseenter',alertH1);
+
+
+// //alternative way old way
+// // h1.onmouseenter = function(e){
+
+// //   alert('onmouseenter: Great! You are reading the heading :D')
+// // };
+
