@@ -156,7 +156,6 @@ btnScrollTo.addEventListener('click', function (e) {
   });
 });
 
-
 //======== Type of event and event handlers ========\\
 
 // //mordern way
@@ -171,10 +170,32 @@ btnScrollTo.addEventListener('click', function (e) {
 
 // h1.addEventListener('mouseenter',alertH1);
 
-
 // //alternative way old way
 // // h1.onmouseenter = function(e){
 
 // //   alert('onmouseenter: Great! You are reading the heading :D')
 // // };
 
+//======== Event propagation Bubbling and Capturing ========\\
+
+// rgb(255,255,255)
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  console.log('Link', e.target, e.currentTarget);
+  this.style.backgroundColor = randomColor();
+  // e.stopPropagation(); // to stop the bubbling and capturing
+});
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  console.log('Links', e.target, e.currentTarget);
+  this.style.backgroundColor = randomColor();
+});
+document.querySelector('.nav').addEventListener('click', function (e) {
+  console.log('Nav Link', e.target, e.currentTarget);
+  this.style.backgroundColor = randomColor();
+});
