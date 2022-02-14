@@ -124,3 +124,39 @@ document.addEventListener('keydown', function (e) {
 
 // // Do not use overwrite the existing classes
 // logo.className = 'Isti';
+
+
+//======== smooth scrolling ========\\
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click',function(e){
+
+  const s1coord = section1.getBoundingClientRect();
+  console.log(s1coord);
+
+  console.log(e.target.getBoundingClientRect());
+  console.log('current scroll (x/y)',window.pageXOffset,pageYOffset);
+
+
+  console.log('height/width viewport',document.documentElement.clientHeight,document.documentElement.clientWidth);
+
+  //scrolling
+  // window.scrollTo(
+  //   s1coord.left + window.pageXOffset,s1coord.top + window.pageYOffset
+  //   );
+
+  // old way support in old browser
+    // window.scrollTo({
+    //  left: s1coord.left + window.pageXOffset,
+    //  top: s1coord.top + window.pageYOffset,
+    //  behavior: 'smooth',
+    // });
+
+    //morder way support in morder browser
+
+    section1.scrollIntoView({
+      behavior:'smooth',
+    })
+});
