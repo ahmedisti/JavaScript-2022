@@ -73,3 +73,54 @@ document.addEventListener('keydown', function (e) {
 //   message.remove(); // new way
 //   message.parentElement.removeChild(message); // old way
 // })
+
+
+// //======== style attributs and classes ========\\
+
+// // styles
+// // added in inline css
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
+
+// console.log(message.style.height);
+// console.log(message.style.backgroundColor);
+// console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).height);
+
+// message.style.height =Number.parseFloat (getComputedStyle(message).height,10) + 40 + 'px';
+
+// document.documentElement.style.setProperty('--color-primary', 'orangered')
+
+
+// //attributes
+
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// logo.alt = 'Istiaq Ahmed';
+// console.log(logo.className);
+
+// logo.setAttribute('company', 'Bank Sheba' );
+
+
+// console.log(logo.src);
+// console.log(logo.getAttribute('src'));
+
+// const link = document.querySelector('.nav__link--btn');
+// console.log(link.href);
+// console.log(link.getAttribute('href'));
+
+
+// // data attributes
+
+// console.log(logo.dataset.versionNumber);
+
+
+// // classes
+
+// logo.classList.add('c','j');
+// logo.classList.remove('c','j');
+// logo.classList.toggle('c');
+// logo.classList.contains('c');  // not include
+
+// // Do not use overwrite the existing classes
+// logo.className = 'Isti';
