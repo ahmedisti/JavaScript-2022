@@ -152,8 +152,28 @@ nav.addEventListener('mouseout',handleHoverFade.bind(1))
 
 
 
+// stciky navigation
+//one way 
+//but fire the event each time on the scrolling
+//bad performance
+// const initialcoord = section1.getBoundingClientRect()
+// window.addEventListener('scroll',function(){
+//   console.log(window.scrollY);
+
+//   if(window.scrollY > initialcoord.top) {
+//     nav.classList.add('sticky')
+//   }
+//   else{
+//     nav.classList.remove('sticky')
+//   }
+
+// })
+
+//stciky navigation: intersection Observer API
+//best way
 
 
+///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 //======== selecting, creating, deleting ========\\
