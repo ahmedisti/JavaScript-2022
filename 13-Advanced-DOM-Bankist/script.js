@@ -38,8 +38,6 @@ document.addEventListener('keydown', function (e) {
 
 //======== button scrolling ========\\
 
-
-
 btnScrollTo.addEventListener('click', function (e) {
   const s1coord = section1.getBoundingClientRect();
   console.log(s1coord);
@@ -89,14 +87,13 @@ btnScrollTo.addEventListener('click', function (e) {
 // 1. add event listener to common parent element
 // 2. determine what element originated the event
 
-document.querySelector('.nav__links').addEventListener('click',function(e){
+document.querySelector('.nav__links').addEventListener('click', function (e) {
   console.log(e.target);
   e.preventDefault();
 
   // matching strategy
 
-  if(e.target.classList.contains('nav__link')){
-    
+  if (e.target.classList.contains('nav__link')) {
     const id = e.target.getAttribute('href');
     console.log(id);
     document.querySelector(id).scrollIntoView({
@@ -107,53 +104,51 @@ document.querySelector('.nav__links').addEventListener('click',function(e){
 
 // Tabbed component \\
 
-
-
-tabsContainer.addEventListener('click',function(e){
-  const clicked =  e.target.closest('.operations__tab');
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
   // console.log(clicked);
-//guard clause
-  if(!clicked) return;
+  //guard clause
+  if (!clicked) return;
 
   //remove active classes for both tab and content
   tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
-  tabsContent.forEach(con => con.classList.remove('operations__content--active'));
+  tabsContent.forEach(con =>
+    con.classList.remove('operations__content--active')
+  );
 
   //active tab
-  clicked.classList.add('operations__tab--active')
+  clicked.classList.add('operations__tab--active');
 
-// active content area
-// console.log(clicked.dataset.tab);
+  // active content area
+  // console.log(clicked.dataset.tab);
 
-document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active')
-
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 });
 
 //menu fade animation\\
 //using the deligation
 
-const handleHoverFade = function(e){
-  if(e.target.classList.contains('nav__link')){
+const handleHoverFade = function (e) {
+  if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-  
+
     const logo = link.closest('.nav').querySelector('img');
     siblings.forEach(el => {
-      if(el !== link) el.style.opacity = this;
-  
+      if (el !== link) el.style.opacity = this;
     });
     logo.style.opacity = this;
   }
-}
+};
 
 //passing "argument" into handler
-nav.addEventListener('mouseover',handleHoverFade.bind(0.5))
-nav.addEventListener('mouseout',handleHoverFade.bind(1))
-
-
+nav.addEventListener('mouseover', handleHoverFade.bind(0.5));
+nav.addEventListener('mouseout', handleHoverFade.bind(1));
 
 // stciky navigation
-//one way 
+//one way
 //but fire the event each time on the scrolling
 //bad performance
 // const initialcoord = section1.getBoundingClientRect()
@@ -186,16 +181,15 @@ nav.addEventListener('mouseout',handleHoverFade.bind(1))
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect().height;
 
-const stickyNav =  function(entries){
+const stickyNav = function (entries) {
   const [entry] = entries;
   // console.log(entry);
-  if(!entry.isIntersecting) nav.classList.add('sticky');
-  else nav.classList.remove('sticky')
-  
-}
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
 
-const headerObserver = new IntersectionObserver(stickyNav,{
-  root:null,
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
   threshold: 0,
   rootMargin: `-${navHeight}px`,
 });
@@ -203,26 +197,80 @@ const headerObserver = new IntersectionObserver(stickyNav,{
 headerObserver.observe(header);
 
 //reveal section
-const allSec = document.querySelectorAll('.section')
+const allSec = document.querySelectorAll('.section');
 
-const revealSection=  function(entries,observer){
-const [entry] = entries;
-console.log(entry);
-if(!entry.isIntersecting) return;
-entry.target.classList.remove('section--hidden')
-observer.unobserve(entry.target)
-}
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  // console.log(entry);
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
 
-const sectionObserver = new IntersectionObserver(revealSection,{
-  root:null,
-  threshold:0.15,
-  
-})
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
 
-allSec.forEach(function(section){
+allSec.forEach(function (section) {
   sectionObserver.observe(section);
-  section.classList.add('section--hidden')
-})
+  section.classList.add('section--hidden');
+});
+
+// LAZY LOADING IMAGES \\
+
+// const imageTarget = document.querySelectorAll('img[data-src]');
+
+// console.log(imageTarget);
+
+// const loadImg = function (entries, observer) {
+//   const entry = entries;
+
+//   if (!entry.isIntersecting) return;
+
+//   //replace the src with data-src
+
+//   entry.target.src = entry.target.dataset.src;
+
+//   entry.target.addEventListener('load', function () {
+//     entry.target.classList.remove('lazy-img');
+    
+//   });
+
+//   observer.unobserve(entry.target);
+// };
+
+// const imageObserver = new IntersectionObserver(loadImg, {
+//   root: null,
+//   threshold: 0,
+// });
+
+// imageTarget.forEach(img => imageObserver.observe(img));
+
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
 
 ///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
@@ -316,7 +364,6 @@ allSec.forEach(function(section){
 // // Do not use overwrite the existing classes
 // logo.className = 'Isti';
 
-
 //======== Type of event and event handlers ========\\
 
 // //mordern way
@@ -374,7 +421,6 @@ allSec.forEach(function(section){
 // console.log(h1.firstElementChild.style.color = 'white');
 // console.log(h1.lastElementChild.style.color = 'white');
 
-
 // //going upwards: parents
 
 // console.log(h1.parentNode);
@@ -384,12 +430,10 @@ allSec.forEach(function(section){
 
 // console.log(h1.closest('.header'));
 
-
 // //sideways : siblings
 
 // console.log(h1.previousElementSibling);
 // console.log(h1.nextElementSibling);
-
 
 // console.log(h1.previousSibling);
 // console.log(h1.nextSibling);
