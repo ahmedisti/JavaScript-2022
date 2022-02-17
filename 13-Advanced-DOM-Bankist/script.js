@@ -534,13 +534,13 @@ slider();
 
 //======= LIFECYCLE DOM EVENTS ========\\
 
-document.addEventListener('DOMContentLoaded', function(e){
-  console.log('hello',e);
-});
+// document.addEventListener('DOMContentLoaded', function(e){
+//   console.log('hello',e);
+// });
 
-window.addEventListener('load',function(e){
-  console.log('page loaded',e);
-});
+// window.addEventListener('load',function(e){
+//   console.log('page loaded',e);
+// });
 
 // window.addEventListener('beforeunload',function(e){
 //   e.preventDefault();
