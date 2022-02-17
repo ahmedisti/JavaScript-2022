@@ -530,3 +530,20 @@ slider();
 // [...h1.parentElement.children].forEach(function(el){
 //   if(el !== h1) el.style.transform = 'scale(0.5)';
 // });
+
+
+//======= LIFECYCLE DOM EVENTS ========\\
+
+document.addEventListener('DOMContentLoaded', function(e){
+  console.log('hello',e);
+});
+
+window.addEventListener('load',function(e){
+  console.log('page loaded',e);
+});
+
+// window.addEventListener('beforeunload',function(e){
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
