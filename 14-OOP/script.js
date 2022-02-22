@@ -3,6 +3,7 @@
 
 //======= constructor function and new operator =======\\
 
+/*
 const Person = function(firstName,birthYear){
 
     this.firstName = firstName;
@@ -59,3 +60,45 @@ bmw.accelerate();
 bmw.accelerate();
 bmw.break();
 bmw.accelerate();
+
+*/
+
+//ES6 class
+
+//class expression
+
+// const PersonCl = class {
+
+// }
+
+//class declaration
+class PersonCl {
+
+    constructor(firstName,birthYear){
+        this.firstName = firstName;
+        this.birthYear = birthYear;
+
+    }
+
+    //method will be added to the .prototype property
+    calcAge(){
+        console.log(2036 - this.birthYear);
+    }
+    greet(){
+        console.log(`hey ${this.firstName}`);
+    }
+}
+
+const jessi = new PersonCl('Jess',1996);
+console.log(jessi);
+jessi.calcAge();
+
+// PersonCl.prototype.greet =  function(){
+//     console.log(`hey ${this.firstName}`);
+// }
+
+jessi.greet();
+
+// 1. classes are not hoisted
+// 2. classes are te first-class citizen
+// 3. classes are execute in strict mode
