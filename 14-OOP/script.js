@@ -2,7 +2,7 @@
 
 
 //======= constructor function and new operator =======\\
-/*
+
 const Person = function(firstName,birthYear){
 
     this.firstName = firstName;
@@ -26,4 +26,36 @@ const ahmed  = new Person('Ahmed',1994);
 
 console.log(ahmed);
 
-*/
+//======= Prototypes =======\\
+
+console.log(Person.prototype);
+Person.prototype.calcAge = function(){
+    console.log(2037 - this.birthYear);
+}
+
+istiaq.calcAge()
+// coding challenge 1
+
+const Car = function(make , speed){
+    this.make = make;
+    this.speed = speed;
+}
+
+Car.prototype.accelerate = function(){
+    this.speed +=10;
+    console.log(`${this.make} is going at ${this.speed} speed`);
+};
+Car.prototype.break = function(){
+    this.speed -=5;
+    console.log(`${this.make} is going at ${this.speed} speed`);
+};
+
+
+
+const bmw = new Car ('BMW',120);
+const audi = new Car ('AUDI',100);
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.break();
+bmw.accelerate();
