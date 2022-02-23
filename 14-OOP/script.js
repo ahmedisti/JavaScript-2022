@@ -4,9 +4,9 @@
 //======= constructor function and new operator =======\\
 
 /*
-const Person = function(firstName,birthYear){
+const Person = function(fullName,birthYear){
 
-    this.firstName = firstName;
+    this.fullName = fullName;
     this.birthYear = birthYear;
     //Never do this inside of a constructor function
     // this.calcAge =  function(){
@@ -74,8 +74,8 @@ bmw.accelerate();
 //class declaration
 class PersonCl {
 
-    constructor(firstName,birthYear){
-        this.firstName = firstName;
+    constructor(fullName,birthYear){
+        this.fullName = fullName;
         this.birthYear = birthYear;
 
     }
@@ -85,20 +85,56 @@ class PersonCl {
         console.log(2036 - this.birthYear);
     }
     greet(){
-        console.log(`hey ${this.firstName}`);
+        console.log(`hey ${this.fullName}`);
+    }
+
+    get age(){
+        return 2037-this.birthYear;
+    }
+//set a property that already exist
+    set fullName(name){
+        
+        if(name.includes(' ')) this._fullName = name;
+        else alert(`${name} is not a full name`)
+    }
+
+    get fullName(){
+        return this._fullName;
     }
 }
 
-const jessi = new PersonCl('Jess',1996);
+const jessi = new PersonCl('Jess Dav',1996);
 console.log(jessi);
 jessi.calcAge();
+console.log(jessi.age);
 
 // PersonCl.prototype.greet =  function(){
-//     console.log(`hey ${this.firstName}`);
+//     console.log(`hey ${this.fullName}`);
 // }
 
 jessi.greet();
 
+const jes = new PersonCl('Jes',1996);
+
 // 1. classes are not hoisted
 // 2. classes are te first-class citizen
 // 3. classes are execute in strict mode
+
+// setters and getters
+
+const account = {
+    owner :'istiaq',
+    move : [200,530,120,300],
+
+    get latest(){
+        return this.move.slice(-1).pop();
+    },
+
+    set latest(mov){
+        this.move.push(mov);
+    },
+}
+
+console.log(account.latest);
+account.latest = 50;
+console.log(account.move);
