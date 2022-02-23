@@ -71,6 +71,7 @@ bmw.accelerate();
 
 // }
 
+/*
 //class declaration
 class PersonCl {
 
@@ -138,3 +139,53 @@ const account = {
 console.log(account.latest);
 account.latest = 50;
 console.log(account.move);
+*/
+// object.create
+
+const PersonProto = {
+    calcAge(){
+        console.log(2036 - this.birthYear);
+    },
+};
+
+const isti = Object.create(PersonProto);
+console.log(isti);
+isti.name = 'Ahmed';
+isti.birthYear = 2002;
+isti.calcAge();
+
+//coding chllenge 2
+
+
+class CarCl {
+    constructor (make , speed){
+    this.make = make;
+    this.speed = speed;
+}
+ 
+
+accelerate (){
+    this.speed +=10;
+    console.log(`${this.make} is going at ${this.speed} speed`);
+};
+break (){
+    this.speed -=5;
+    console.log(`${this.make} is going at ${this.speed} speed`);
+}
+
+get speedUS(){
+return this.speed / 1.6;
+}
+
+set speedUS(speed){
+    this.speed =  speed * 1.6;
+}
+}
+
+const ford = new CarCl('FORD',120);
+console.log(ford.speedUS)
+ford.accelerate();
+ford.accelerate();
+ford.break();
+ford.speedUS = 50;
+console.log(ford);
